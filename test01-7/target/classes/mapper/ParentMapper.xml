@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ParentMapper">
+ 
+  <resultMap id="BaseResultMap" type="com.example.model.Parent">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="line_userid" jdbcType="VARCHAR" property="lineUserid" />
+    <result column="line_id" jdbcType="VARCHAR" property="lineId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, line_userid, line_id
+  </sql>
+  
+  <select id="selectBylineID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from parent
+    where line_userid = #{lineuserid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPrimaryUserID" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select
+       p.id,p.line_userid
+   from 
+       parent p 
+   join 
+       relationship r 
+   join
+       child c 
+   on
+       p.id=r.p_id
+   and
+       c.id=r.c_id
+   where 
+       c.recognitionid=#{recognitionid,jdbcType=VARCHAR};
+  </select>
+     
+  <insert id="insertSelective" parameterType="com.example.model.Parent">
+    insert into parent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="lineUserid != null">
+        line_userid,
+      </if>
+      <if test="lineId != null">
+        line_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="lineUserid != null">
+        #{lineUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="lineId != null">
+        #{lineId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert> 
+</mapper>

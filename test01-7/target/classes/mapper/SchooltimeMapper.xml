@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.SchooltimeMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.Schooltime">
+    <result column="arrival_time" jdbcType="INTEGER" property="arrivalTime" />
+    <result column="departure_time" jdbcType="INTEGER" property="departureTime" />
+    <result column="c_id" jdbcType="INTEGER" property="cId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.model.Schooltime">
+    insert into schooltime (arrival_time, departure_time, c_id
+      )
+    values (#{arrivalTime,jdbcType=INTEGER}, #{departureTime,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.model.Schooltime">
+    insert into schooltime
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="arrivalTime != null">
+        arrival_time,
+      </if>
+      <if test="departureTime != null">
+        departure_time,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="arrivalTime != null">
+        #{arrivalTime,jdbcType=INTEGER},
+      </if>
+      <if test="departureTime != null">
+        #{departureTime,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
