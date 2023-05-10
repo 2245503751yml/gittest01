@@ -34,7 +34,7 @@ public class BindingController {
 	private static final String CHILD_ERRO_MSG = "正しいお子様の認証を入力していただけますか";
 	// dateエラーメッセージ
 	private static final String DATE_ERRO_MSG = "申し訳ございませんが、時間の入力に誤りがあるようです。もう一度入力し直していただけますでしょうか。";
-	//
+	//文字格式的错误
 	private static final String ERRO_MSG = "正しいフォーマットを入力してください: 子供の認識ID + 子供の生年月日。例: 「ID + 2000-02-02」";
 	// バインド解除、保護者情報がない
 	private static final String UNBOUND_MSG = "大変申し訳ございませんが、お子様のバインドがされていないため、解除することができません";
