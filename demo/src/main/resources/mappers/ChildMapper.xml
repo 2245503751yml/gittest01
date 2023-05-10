@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ChildMapper">
+  <resultMap id="BaseResultMap" type="com.example.pojo.Child">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="surname" jdbcType="VARCHAR" property="surname" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="recognitionid" jdbcType="VARCHAR" property="recognitionid" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, surname, name, school_name, grade, age, sex, recognitionid, birthday
+  </sql>
+  <select id="selectByrecognitionid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from child
+    where recognitionid =  #{recognitionid,jdbcType=VARCHAR}
+  </select>
+</mapper>
