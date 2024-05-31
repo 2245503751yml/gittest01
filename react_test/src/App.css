@@ -44,7 +44,7 @@
 
 .seconds{
   fill: rgb(15, 181, 236);
-  stroke: blue;
+  stroke: rgba(204, 0, 255, 0.719);
 }
 .watch{
   transition: fill 0.5s;
