@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+    <defs>
+        <g id="xly">
+            <path d="M80 25
+                    A 30 30 0 0 0 64 74
+                    L 67 75
+                    A 14 14 0 0 1 91 71
+                    L 95 69
+                    C 80 66 64 34 80 25" stroke="black" />
+        </g>
+    </defs>
+    <circle cx="250" cy="250" r="56" fill="red" stroke="black" stroke-width="2.5" />
+    <circle cx="250" cy="250" r="40" fill="red" stroke="black" stroke-width="1" />
+    <circle cx="250" cy="250" r="14" fill="red" stroke="black" stroke-width="1" />
+    <g id="dou" transform="translate(170, 170)">
+        <use href="#xly" x="0" y="0" />
+    </g>
+</svg>

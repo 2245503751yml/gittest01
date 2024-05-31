@@ -1,0 +1,12 @@
+<svg version="1.1"
+  baseProfile="full"
+  width="500" height="500" 
+  xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="250" cy="250" r="220" fill="white" />
+  <rect x="251" y="250" rx="10" ry="10" width="5" height="190"  transform="rotate(180 250 250)"   />
+  <rect x="245" y="250" rx="10" ry="10" width="15" height="150" transform="rotate(180 250 250)"    />
+  <rect x="240" y="250" rx="10" ry="10" width="25" height="110" transform="rotate(180 250 250)"   />
+  <rect x="250" y="0" rx="10" width="1" height="500"   />
+  <rect x="0" y="250" rx="10" width="500" height="1"   />
+</svg>
